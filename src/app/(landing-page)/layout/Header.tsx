@@ -10,16 +10,24 @@ import Navigation from "./Navigation";
 import Link from "next/link";
 import { CloseIcon } from "@/components/common/Icons";
 import { useScrollThreshold } from "@/app/hooks/useScrollThreshold";
+import Image from "next/image";
 export default function Header() {
   const hasScrolled = useScrollThreshold(50);
   const [menuOpen, setMenuOpen] = useState(false);
   useBodyScrollLock(menuOpen);
   const pathName = usePathname();
 
+  const isThankYouPage = pathName.endsWith("/thank-you");
+
   const whiteLogoPaths = ["/brigade-avalon"];
 
   const logo1 =
-    hasScrolled || menuOpen || !whiteLogoPaths.includes(pathName)
+    // On thank-you page, always use the dark variant of the brigade logo.
+    isThankYouPage
+      ? "/images/landing-page/logos/brigade-avalon-dark.svg"
+      : hasScrolled
+      ? "/images/landing-page/logos/brigade-avalon-dark.svg"
+      : menuOpen || !whiteLogoPaths.includes(pathName)
       ? "/images/landing-page/logos/bran-avan.svg"
       : "/images/landing-page/logos/brigade-avalon.svg";
 
@@ -42,7 +50,9 @@ export default function Header() {
             hasScrolled ? "gap-3 lg:gap-2" : "gap-3 lg:gap-6"
           }`}
         >
-          <img
+          <Image
+          height={10}
+          width={10}
             src={logo1}
             alt="brigade avalon logo"
             className={`w-auto  h-10 lg:h-24 ${
@@ -55,18 +65,21 @@ export default function Header() {
         <div className="gap-8 items-center hidden lg:flex">
           <Navigation
             textColor={
-              hasScrolled || !whiteLogoPaths.includes(pathName)
+              isThankYouPage
+                ? "text-[#202020]"
+                : hasScrolled || !whiteLogoPaths.includes(pathName)
                 ? "text-foreground"
                 : "text-white"
             }
+            disableScrollEffect={isThankYouPage}
           />
-          {pathName !== "/brigade-avalon/thank-you" && (
+          {!isThankYouPage && (
             <Link href={"/brigade-avalon#enquire-form"}>
               <Button
                 variant={hasScrolled ? "default" : "secondary"}
                 className={`${
-                  hasScrolled ? "text-[#3B84BF]" : "text-[#3B84BF]"
-                } transition-colors rounded-lg ease-in-out bg-white duration-300`}
+                  hasScrolled ? "text-[white] bg-[#3D9E8B] " : "text-[#3B84BF] bg-[white] "
+                } transition-colors rounded-lg font-bold ease-in-out duration-300`}
               >
                 Enquire Now
               </Button>
@@ -74,7 +87,7 @@ export default function Header() {
           )}
         </div>
         <div className="lg:hidden relative z-[9999]">
-          {pathName === "/brigade-avalon/thank-you" ? (
+          {isThankYouPage ? (
             <Link href={"/brigade-avalon"}>
               <CloseIcon className="size-6" />
             </Link>
@@ -86,7 +99,11 @@ export default function Header() {
             />
           )}
         </div>
-        <MobileNav menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <MobileNav
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+          hideCta={isThankYouPage}
+        />
       </div>
     </header>
   );

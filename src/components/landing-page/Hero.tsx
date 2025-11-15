@@ -19,7 +19,7 @@ export default function Hero() {
         placeholder="blur"
         alt="Hero Background"
         className="object-cover object-top-left pointer-events-none hidden sm:block"
-        unoptimized
+        
       />
       <Image
         src={heroBgMobile}
@@ -27,7 +27,7 @@ export default function Hero() {
         placeholder="blur"
         alt="Hero Background"
         className="object-cover object-top-left pointer-events-none sm:hidden"
-        unoptimized
+        
       />
       <div className="relative items-center justify-end min-h-screen container mx-auto pt-40 pb-24 hidden lg:flex">
         <SiteVisitFormCard />

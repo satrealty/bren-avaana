@@ -1,9 +1,10 @@
-import { Urbanist } from "next/font/google";
+import { Arapey } from "next/font/google";
 import "./globals.css";
 import { appData } from "@/lib/appData";
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google"; // ← Add this
 import { Analytics } from "@vercel/analytics/next";
+import LenisProvider from "@/components/common/LenisProvider";
 
 const canonical = new URL(appData.canonicalPath || "/", appData.appURL).toString();
 
@@ -41,9 +42,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(appData.appURL),
 };
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
+const arapey = Arapey({
   subsets: ["latin"],
+  weight: ["400"],        
+  variable: "--font-arapey",
 });
 
 export default function RootLayout({
@@ -92,10 +94,12 @@ export default function RootLayout({
       </head>
       <Analytics/>
 
-      <body className={`${urbanist.variable} antialiased`}>
+      <body className={`${arapey.variable} antialiased`}>
+       
         <GoogleTagManager gtmId="GTM-K7JB232H" />
 
         {children}
+     
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ export default function CustomCheckBox({
       style={{
         backgroundColor: checked ? "#3D9E8B" : "transparent",
       }}
-      className={`!rounded-lg border border-[#3D9E8B] w-5 h-5 flex items-center justify-center cursor-pointer transition-colors ease-in-out duration-300`}
+      className={`!rounded-sm border border-[#3D9E8B] w-4 h-4 flex items-center justify-center cursor-pointer transition-colors ease-in-out duration-300`}
       onClick={onChange}
     >
       {checked && (checkIcon || <CustomCheckIcon fill="#3D9E8B"/>)}

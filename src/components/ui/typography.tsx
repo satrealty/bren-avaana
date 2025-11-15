@@ -8,9 +8,9 @@ const typographyVariants = cva("", {
   variants: {
     variant: {
       title: "text-[38px] lg:text-[48px] lg2:text-[56px] leading-[120%] font-semibold",
-      sectionTitle: "text-[27px] md:text-[30px] lg:text-[40px] lg2:text-[48px] font-semibold leading-[120%]",
+      sectionTitle: "text-[27px] md:text-[30px] lg:text-[40px] lg2:text-[484x] font-semibold leading-[120%]",
       subtitle: " text-sm lg:text-[22px] lg2:text-[26px] font-medium leading-[150%]",
-      body: "text-sm lg:text-lg font-medium leading-[150%] text-customGrey",
+      body: "text-sm lg:text-lg font-normal leading-[150%] text-customGrey",
       caption: "text-sm text-customGrey",
     },
   },

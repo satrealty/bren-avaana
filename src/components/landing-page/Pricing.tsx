@@ -1,6 +1,5 @@
-"use client";
 
-import { Typography } from "@/components/ui/typography";
+// import { Typography } from "@/components/ui/typography";
 import PricingCard from "../common/cards/PricingCard";
 export default function Pricing() {
   return (

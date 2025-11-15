@@ -1,4 +1,3 @@
-"use client";
 
 import NumberInfoCard from "../common/cards/NumberInfoCard";
 

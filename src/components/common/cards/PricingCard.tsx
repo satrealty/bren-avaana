@@ -44,7 +44,7 @@ export default function PricingCard({
       <div className="lg:w-fit mx-auto mt-6 lg:mt-10 block lg:hidden">
         <Button
           onClick={() => openForm(<SiteVisitForm />, "Book a Site Visit")}
-          className="w-full lg:w-fit"
+          className="w-full lg:w-fit "
         >
           {button.text}
         </Button>

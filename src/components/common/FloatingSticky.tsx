@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { useScrollThreshold } from "@/app/hooks/useScrollThreshold";
-import { Typography } from "../ui/typography";
+// import { Typography } from "../ui/typography";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 
 // ✅ Loader component
 function Loader() {
@@ -109,42 +110,59 @@ export default function FloatingSticky() {
   return (
     <>
       {/* ✅ Floating Bar */}
-      <div
-        className={`fixed left-0 right-0 flex justify-center z-50 bottom-2 lg:bottom-5 h-[58.2px] bg-none  rounded-[10px] lg:bg-transparent max-w-[300px] md:max-w-[350px]  mx-auto py-1 transition-all duration-300 ${
-          isScrolled
-            ? "translate-y-0 opacity-100"
-            : "translate-y-4 opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="w-full bg-white cursor-pointer border border-[#F3F3F3] rounded-[10px] mx-auto">
-          <div className=" cursor-pointer  h-full  flex items-stretch ">
-            <button
-              onClick={() => setShowModal(true)}
-              className="flex items-center justify-center flex-1 gap-3"
-            >
-<svg
-  className="text-[#25d366] lucide lucide-phone-call-icon lucide-phone-call"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  strokeWidth="2"
-  strokeLinecap="round"
-  strokeLinejoin="round"
+   <div
+  className={`
+    fixed left-1/2 transform -translate-x-1/2
+    bottom-2 lg:bottom-5 z-50
+    w-[305.75px] md:w-[405.75px] max-w-full
+    h-[63px]
+    flex justify-center items-center
+    bg-white rounded-[10px]
+    mx-auto py-1
+    transition-all duration-300
+    ${isScrolled
+      ? "translate-y-0 opacity-100"
+      : "translate-y-4 opacity-0 pointer-events-none"
+    }
+  `}
+  style={{boxShadow: '0 2px 8px rgba(0,0,0,0.07)'}}
 >
-  <path d="M13 2a9 9 0 0 1 9 9" />
-  <path d="M13 6a5 5 0 0 1 5 5" />
-  <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
-</svg>
-              <Typography className="font-bold text-[#25d366] cursor-pointer">
-                Get instant call in 5 min
-              </Typography>
-            </button>
-          </div>
-        </div>
-      </div>
+  <div className="w-full h-full  flex">
+    {/* Call Button */}
+    <button
+      onClick={() => setShowModal(true)}
+      className="
+        flex-1 flex items-center justify-center gap-3
+        font-bold text-[#25d366] 
+        hover:bg-[#f8fdf9] rounded-[10px] transition
+        cursor-pointer
+        h-full
+      "
+    >
+      {/* SVG Icon */}
+     <Image src='/icons/phoneIcon.svg' alt="" width={20} height={20}  />
+      <span className="font-semibold text-[#999999] text-[18px]">Call</span>
+    </button>
+
+    {/* WhatsApp Button */}
+    <button
+      onClick={() => setShowModal(true)}
+      className="
+        flex-1 flex items-center justify-center gap-3
+        font-bold text-[#b0b0b0]
+        hover:bg-[#f9fafb] rounded-[10px] transition
+        cursor-pointer
+        h-full
+      "
+      disabled
+    >
+      {/* WhatsApp SVG */}
+       <Image src='/icons/whatsappIcon.svg' alt="" width={20} height={20}  />
+      <span className="font-semibold text-[#999999] text-[18px]">WhatsApp</span>
+    </button>
+  </div>
+</div>
+
 
       {/* ✅ Modal */}
       {showModal && (
@@ -184,7 +202,7 @@ export default function FloatingSticky() {
                   type="button"
                   disabled={isSubmitting}
                   onClick={() => setShowModal(false)}
-                  className={`px-4 py-2 rounded-lg cursor-pointer bg-gray-300 text-white hover:bg-gray-400 ${
+                  className={`px-4 py-2 rounded-lg cursor-pointer bg-gray-300 text-white hover:bg-gray-400 transition-all ${
                     isSubmitting ? "opacity-50" : ""
                   }`}
                 >
@@ -194,7 +212,7 @@ export default function FloatingSticky() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-4 py-2 rounded-lg ${!isSubmitting&&"cursor-pointer"} bg-green-600 text-white hover:bg-green-700 flex items-center justify-center`}
+                  className={`px-4 py-2 rounded-lg ${!isSubmitting&&"cursor-pointer"} bg-[#3D9E8B] text-white hover:bg-[#296b5e] flex items-center justify-center transition-all`}
                 >
                   {isSubmitting ? <Loader /> : "Submit"}
                 </button>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useFormContext } from "@/app/context/formContext";
-import StatsDisplaySection from "@/components/common/StatsDisplay";
+// import StatsDisplaySection from "@/components/common/StatsDisplay";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import { setStorage } from "@/lib/storageHelper";
@@ -11,7 +11,6 @@ import SiteVisitForm from "../common/forms/SiteVisitForm";
 
 export default function AboutBrigadeAvalon() {
   const { openForm } = useFormContext();
-
 
   function handleBrochureDownloadClick() {
     setStorage("brochure_download_enabled", true);
@@ -25,12 +24,15 @@ export default function AboutBrigadeAvalon() {
     <section id="overview" className="py-16 lg:py-20">
       <div className="container mx-auto">
         <div className="flex gap-20 items-center">
-          <div className="lg:basis-1/3">
+          <div className="lg:basis-1/2">
+            <p className="text-customGrey uppercase mb-3">Bren Avaana</p>
             <div className="space-y-3 lg:space-y-6">
-              <h2 className="text-[27px] md:text-[30px] lg:text-[40px] lg2:text-[48px] font-semibold leading-[120%]">Brigade Avalon</h2>
+              <Typography variant={"sectionTitle"} className=" leading-[120%]">
+                Where Life Comes Abloom
+              </Typography>
               <Typography variant={"body"} className="text-pretty text-justify">
-                Premium 3.5 & 4 BHK homes by Brigade Group in Whitefield with green spaces, top amenities, and excellent IT hub and metro
-                connectivity.
+                Premium 3 BHK residences by Bren, thoughtfully designed for
+                comfort and connectivity.
               </Typography>
               <Image
                 src={"/images/landing-page/where-life-comes.webp"}
@@ -40,12 +42,22 @@ export default function AboutBrigadeAvalon() {
                 className="object-cover object-bottom w-full h-auto rounded-xl lg:hidden my-8"
               />
               <Typography variant={"body"} className="text-justify text-pretty">
-                Designed for modern living, each tower features only 4 to 6 residences per floor, ensuring enhanced privacy and ample space for
-                residents.
+                Set across three elegant towers with just five homes per floor,
+                the community offers modern amenities including a clubhouse,
+                pool, yoga studio, squash, volleyball & pickleball courts.
+              </Typography>
+
+              <Typography variant={"body"} className="text-justify text-pretty">
+                Experience serene living with walking trails, a pet park,
+                elders’ zone, and lush green spaces designed to bring people
+                together.{" "}
               </Typography>
             </div>
 
-            <Button onClick={handleBrochureDownloadClick} className="mt-10 lg:mt-16 w-full lg:w-fit">
+            <Button
+              onClick={handleBrochureDownloadClick}
+              className="mt-10 lg:mt-16 w-full lg:w-fit font-semibold"
+            >
               Download E-Brochure
             </Button>
           </div>

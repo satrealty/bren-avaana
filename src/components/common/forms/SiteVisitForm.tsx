@@ -32,18 +32,22 @@ export default function SiteVisitForm({ style = 1 }: { style?: number }) {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
     watch,
     getValues,
     setValue,
   } = useForm<UserSchemaType>({
     defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
       countryCode: "+91",
       contactConsent: true,
     },
     resolver: zodResolver(userSchema),
-    mode: "onSubmit", // validate only when submit is clicked
-    reValidateMode: "onChange", // after first submit, validate on change
+    // validate fields as the user types so we can disable/enable the submit button dynamically
+    mode: "onChange",
+    reValidateMode: "onChange",
   });
 
 
@@ -118,6 +122,9 @@ const onSubmit = async (data: UserSchemaType) => {
   const [messageValue, setMessageValue] = useState(
     () => getValues("message") || ""
   );
+
+  // compute overall form validity (fields valid + consent checked)
+  const isFormValid = Boolean(isValid) && checked;
 
   // Memoize the list of country code items so it's not regenerated on every unrelated re-render
   const countryCodeItems = useMemo(
@@ -248,7 +255,16 @@ const onSubmit = async (data: UserSchemaType) => {
           </Typography>
         </div>
         <div className="flex justify-center w-full lg:w-fit">
-          <Button type="submit" className="w-full lg:w-auto rounded-lg bg-[#CCCCCC] min-w-[128px]">
+          <Button
+            type="submit"
+            disabled={!isFormValid || loading || isSubmitting}
+            className={cn(
+              "w-full lg:w-auto rounded-lg min-w-32 font-bold",
+              isFormValid
+                ? "bg-[#3D9E8B] hover:bg-[#245c51] text-white"
+                : "bg-gray-300 text-gray-600 cursor-not-allowed"
+            )}
+          >
             {loading ? <div className="loader-form-button" /> : "Submit"}
           </Button>
         </div>

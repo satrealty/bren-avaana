@@ -12,9 +12,11 @@ import { useFormContext } from "@/app/context/formContext";
 export default function MobileNav({
   menuOpen,
   setMenuOpen,
+  hideCta = false,
 }: {
   menuOpen: boolean;
   setMenuOpen: (open: boolean) => void;
+  hideCta?: boolean;
 }) {
   // Variants for parent list (controls stagger) and each item
   const listVariants = {
@@ -57,7 +59,7 @@ export default function MobileNav({
       (async () => {
         await listControls.set("hidden");
         await listControls.start("show");
-        setShowCta(true); // only show CTA after list finishes
+        setShowCta(!hideCta); // only show CTA after list finishes (and not when hidden)
       })();
     } else {
       setShowCta(false);

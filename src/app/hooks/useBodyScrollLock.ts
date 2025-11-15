@@ -1,6 +1,6 @@
 // useBodyScrollLock.ts
 import { useEffect, useRef } from "react";
-import { lockBodyScroll, unlockBodyScroll } from "@/lib/bodyScrollLock";
+import { lockBodyScroll } from "@/lib/bodyScrollLock";
 
 export function useBodyScrollLock(locked: boolean) {
   const unlockRef = useRef<null | (() => void)>(null);

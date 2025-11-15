@@ -1,12 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { Button } from "../ui/button";
 
 export default function ProjectHighlight() {
   return (
-    <section className="w-full relative py-10 md:py-16 flex justify-center">
+    <section className="w-full relative py-10 md:py-16 flex justify-center overflow-x-hidden ">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 bg-customGreen rounded-2xl overflow-hidden shadow-lg">
           {/* Left - Project Image */}
@@ -27,7 +25,12 @@ export default function ProjectHighlight() {
           </div>
         </div>
       </div>
-      <div className="absolute -top-5 right-0"><Image src="/images/landing-page/leaf-right-half-green.png" width={100} height={100} alt=""/></div>
+      <div className="absolute -top-5 -right-13 z-[9999999] ">
+        <Image src="/images/landing-page/leaf-right-full-green.png"
+         width={220} 
+         height={220} 
+         alt=""/>
+         </div>
     </section>
   );
 }

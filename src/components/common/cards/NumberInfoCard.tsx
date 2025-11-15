@@ -1,5 +1,3 @@
-"use client";
-
 import { Typography } from "@/components/ui/typography";
 
 export default function NumberInfoCard({

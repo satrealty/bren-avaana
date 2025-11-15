@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import NumberInfoCard from "./cards/NumberInfoCard";
 import Image from "next/image";
@@ -22,7 +20,7 @@ export default function StatsDisplaySection({
         />
       ))}
     </div>
-    <div className="absolute -top-20 left-0"><Image src="/images/landing-page/leaf-left-half-green.png" width={100} height={100} alt=""/></div>
+    <div className="absolute -top-20 left-0"><Image src="/images/landing-page/leaf-left-half-green.png" width={120} height={120} alt=""/></div>
     </div>
   );
 }

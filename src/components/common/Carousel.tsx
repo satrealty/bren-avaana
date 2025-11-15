@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { Children, ReactNode, useEffect, useState } from "react";
 
 type CarouselProps = {
@@ -197,7 +198,7 @@ useEffect(() => {
             className="w-full h-full flex items-center justify-center"
           >
             {isPlay ? (
-              <span className="text-[#dbc9bc] text-lg">❚❚</span>
+              <span className="text-[#dbc9bc] text-lg"><Image height={20} width={20} src="/images/landing-page/ammenitiesIcons/pauseIcon.svg" alt="" /></span>
             ) : (
               <span className="text-[#dbc9bc] text-lg">▶</span>
             )}

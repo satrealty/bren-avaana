@@ -29,7 +29,7 @@ export default function FloorPlanCard({
     }
   }
   return (
-    <div className="relative w-full max-w-[560px] h-[176px] lg:h-[318px] rounded-xl">
+    <div className="relative w-full max-w-[500px] h-[176px] lg:h-[298px] rounded-xl">
       <Image
         src={imageSrc}
         fill
@@ -41,7 +41,7 @@ export default function FloorPlanCard({
       <div className="relative flex items-center justify-center w-full h-full">
         <Button
           onClick={handleBrochureDownloadClick}
-          className="min-w-[210px] lg:min-w-0"
+          className="min-w-[210px] text-[#3D9E8B] lg:min-w-0 rounded-full font-bold"
           variant={"secondary"}
         >
           {title}

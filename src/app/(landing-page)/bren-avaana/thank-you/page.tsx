@@ -23,19 +23,19 @@ export default function Thankyou() {
         <div className="">
           <div className="pt-36 lg:pt-24">
             <YouTubePlayer
-              className="h-auto lg:h-[449px] w-auto"
+              className="h-auto lg:h-[549px] w-auto"
               url="https://www.youtube.com/watch?v=93Zyb-vrgb4"
               thumbnail="/images/landing-page/video-thumbnail.jpg"
             />
             <Typography
-              variant={"sectionTitle"}
-              className="text-[28px] font-medium mt-20 text-center text-foreground leading-tight max-w-[270px] lg:max-w-none mx-auto"
+              variant={"title"}
+              className="text-[52px] font-normal mt-20 text-center text-foreground leading-tight max-w-[270px] lg:max-w-none mx-auto"
             >
               Thank You for Showing Interest
             </Typography>
             <Typography
               variant={"body"}
-              className="text-sm font-medium mt-4 text-center max-w-[284px] lg:max-w-none mx-auto"
+              className="text-sm text-customGrey font-normal mt-4 text-center max-w-[284px] lg:max-w-none mx-auto"
             >
               Our team will connect with you soon with more details about
               Brigade Avalon.

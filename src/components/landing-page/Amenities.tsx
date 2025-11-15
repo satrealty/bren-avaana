@@ -3,33 +3,56 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Typography } from "@/components/ui/typography";
 import AmenitiesGalleryCard from "@/components/common/cards/AmenitiesGalleryCard";
-import Carousel from "../common/Carousel";
-import MobileCarousel from "../common/MobileCarousel";
+
 import Image from "next/image";
 import { chunkArray } from "@/lib/formatArray";
 import { carouselImages } from "@/lib/data/images";
+import dynamic from "next/dynamic";
+
+const Carousel = dynamic(() => import("../common/Carousel"), {
+  ssr: false,
+});
 
 const ACCORDIAN_DATA = [
   {
     id: "item-1",
     trigger: {
-      icon: "recreation",
+      icon: "/images/landing-page/ammenitiesIcons/recreationIcon.svg",
       title: "Recreation & Lifestyle",
     },
     content: [
-      "Lounge spaces & Reading / Hobby areas",
-      "Open Café space",
-      "Banquet hall with pre-function lobby",
-      "Party terrace",
-      "Mini theatre",
-      "Spa space",
-      "Temperature-controlled swimming pool",
+      "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+      "Theme Play Park for Kids",
+      "Kids’ & Toddlers’ Play Areas",
+      "Skating Rink",
+      "Multi-purpose Play Court",
+      "Community Vegetable Garden",
+      "Floral Garden with Trees",    
+
+
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",  
     ],
   },
   {
     id: "item-2",
     trigger: {
-      icon: "barbell-with-heart",
+      icon: "/images/landing-page/ammenitiesIcons/sportsicon.svg",
       title: "Sports & Fitness",
     },
     content: [
@@ -43,20 +66,65 @@ const ACCORDIAN_DATA = [
       "Calisthenics court",
       "Fitness pad",
       "Reflexology path",
+
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
     ],
   },
   {
     id: "item-3",
     trigger: {
-      icon: "two-hands",
+      icon: "/images/landing-page/ammenitiesIcons/wellnessIcon.svg",
       title: "Kids & Family",
     },
-    content: ["Pet park", "Passive recreation zones", "Zen court"],
+    content: ["Pet park", 
+      "Passive recreation zones", 
+      "Zen court",
+
+
+       "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+    
+    ]
+    
+    ,
   },
   {
     id: "item-4",
     trigger: {
-      icon: "heart-hand-shake",
+      icon: "/images/landing-page/ammenitiesIcons/familyIcon.svg",
       title: "Community Spaces",
     },
     content: [
@@ -64,24 +132,29 @@ const ACCORDIAN_DATA = [
       "Interconnected lobby spaces",
       "Courtyard & step-out plaza",
       "Feature waterbody at arrival",
+
+
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
+         "Grand Reception Lobby",
+      "Multi-purpose / Party Hall with Outdoor Area",
+      "Kitchen & Buffet Area",
+      "Casual Reading Space with Pool Table",
+      "Casual Co-working Café",
+      "Party Lawn with Open-Air Theatre",
     ],
   },
-  {
-    id: "item-5",
-    trigger: {
-      icon: "basket",
-      title: "Convenience & Business",
-    },
-    content: ["Business centre", "Visitor car parking", "Open drop-off zones (tower & clubhouse)"],
-  },
-  {
-    id: "item-6",
-    trigger: {
-      icon: "charging-station",
-      title: "Sustainability Features",
-    },
-    content: ["EV charging (EV-enabled parking with every home)"],
-  },
+  
 ];
 
 const CAROUSEL_DATA = {
@@ -132,16 +205,15 @@ export default function Amenities() {
   return (
     <section id="amenities" className="py-8 my-8 relative lg:py-20 bg-[#FBFBFB] md:bg-white">
       <h2 className="text-center max-w-56 md:max-w-none mx-auto text-[27px] md:text-[30px] lg:text-[40px] lg2:text-[48px] font-semibold leading-[120%]">
-        Price Details
+        A Bouquet of Belonging
       </h2>
 
       <Typography variant={"body"} className="lg:text-center container  mx-auto mt-4">
-        Spread across four levels, Bren Avaana offers thoughtfully curated spaces for relaxation, recreation, and rejuvenation, enriching <br /> everyday
-        life for individuals, families, and the community.
+       Spread across four levels, Bren Avaana offers thoughtfully curated spaces for relaxation, recreation, and rejuvenation, enriching everyday life for individuals, families, and the community.
       </Typography>
 
-      <div className="absolute top-0 left-0">
-        <Image   src="/images/landing-page/leaf-left-half-golden.png"  width={100} height={100} alt=""/>
+      <div className="absolute top-0 -left-8">
+        <Image   src="/images/landing-page/leaf-left-half-golden.png"  width={180} height={180} alt=""/>
       </div>
       <div className="container mx-auto">
         <Accordion type="single" collapsible className="w-full  mt-8" defaultValue={ACCORDIAN_DATA[0].id}>
@@ -150,15 +222,30 @@ export default function Amenities() {
               <AccordionTriggerContent title={item.trigger.title} icon={item.trigger.icon} />
 
               <AccordionContent>
-                <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex flex-col justify-around lg:flex-row gap-8">
                   {/* Left: Text List */}
-                  <ul className="list-disc pl-6 space-y-1 text-customGrey basis-[30%]">
-                    {item.content.map((text, index) => (
-                      <li key={index + "body"}>
-                        <Typography variant={"body"}>{text}</Typography>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="scrollbox-wrapper " >
+  <ul
+    className="
+      scrollbox
+      list-none
+      space-y-2
+      text-customGrey
+      text-left
+      basis-[30%]
+      max-h-[380px]
+  overflow-y-auto
+      pr-4
+      px-6
+    "
+  >
+    {item.content.map((text, index) => (
+      <li key={index + 'body'}>
+        <Typography variant={'body'}>{text}</Typography>
+      </li>
+    ))}
+  </ul>
+</div>
 
                   {/* Right: Carousel */}
                   <div className="basis-[70%]">
@@ -199,7 +286,7 @@ const AccordionTriggerContent = ({ title, icon }: { title: string; icon: string 
   return (
     <AccordionTrigger>
       <div className="flex items-center gap-6">
-        <img src={`/icons/${icon}.svg`} alt={`${title} icon`} />
+        <img src={icon} alt={` icon`} />
         <Typography variant={"sectionTitle"} className="text-lg md:text-lg lg:text-xl lg2:text-2xl font-semibold leading-[150%]">
           {title}
         </Typography>
