@@ -1,7 +1,7 @@
 export const appData = {
   // Core
-  title: "Brigade Avalon | SAT Realty",
-  shortTitle: "Brigade Avalon",
+  title: "Bren-Avaana | SAT Realty",
+  shortTitle: "Bren-Avaana",
   description:
     "Explore luxury residences at Brigade Avalon with premium amenities, strategic location, and curated lifestyle experiences. Book a site visit today.",
   appURL: "https://sat-realty.com/",

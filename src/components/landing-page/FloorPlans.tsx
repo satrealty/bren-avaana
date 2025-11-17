@@ -15,7 +15,8 @@ export default function FloorPlans() {
             Floor Plans
           </h2>
           <Typography className="lg:text-center mt-4">
-            Your vision deserves a home that fits perfectly. Explore our thoughtfully designed floor plans tailored to match your lifestyle and aspirations.
+            Your vision deserves a home that fits perfectly. Explore our thoughtfully designed floor plans tailored
+             to match your lifestyle and aspirations.
           </Typography>
           <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-28 mt-8 lg:mt-24">
             <FloorPlanCard

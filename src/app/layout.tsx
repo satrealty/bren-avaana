@@ -4,7 +4,6 @@ import { appData } from "@/lib/appData";
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google"; // ← Add this
 import { Analytics } from "@vercel/analytics/next";
-import LenisProvider from "@/components/common/LenisProvider";
 
 const canonical = new URL(appData.canonicalPath || "/", appData.appURL).toString();
 
@@ -84,7 +83,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="google-site-verification" content="hJowW9IlFVI4PnJ9XM1-Vdr3Q9hOmsUBhVwNA7hzXj4" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+       <meta
+      name="google-site-verification"
+      content="hJowW9IlFVI4PnJ9XM1-Vdr3Q9hOmsUBhVwNA7hzXj4"
+    />
         {jsonLd.length > 0 && (
           <script
             type="application/ld+json"
@@ -92,10 +96,10 @@ export default function RootLayout({
           />
         )}
       </head>
-      <Analytics/>
+     
 
       <body className={`${arapey.variable} antialiased`}>
-       
+        <Analytics/>
         <GoogleTagManager gtmId="GTM-K7JB232H" />
 
         {children}

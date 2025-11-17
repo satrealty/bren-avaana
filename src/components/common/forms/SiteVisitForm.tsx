@@ -102,7 +102,7 @@ const onSubmit = async (data: UserSchemaType) => {
   link.click();
   document.body.removeChild(link);
 
-  router.push("/brigade-avalon/thank-you");
+  router.push("/bren-avaana/thank-you");
 } else {
       alert("Form submitted but email/PDF might have failed.");
     }

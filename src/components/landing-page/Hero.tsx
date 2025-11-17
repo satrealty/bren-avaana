@@ -18,6 +18,7 @@ export default function Hero() {
         fill
         placeholder="blur"
         alt="Hero Background"
+        priority
         className="object-cover object-top-left pointer-events-none hidden sm:block"
         
       />
@@ -26,6 +27,7 @@ export default function Hero() {
         fill
         placeholder="blur"
         alt="Hero Background"
+        priority
         className="object-cover object-top-left pointer-events-none sm:hidden"
         
       />

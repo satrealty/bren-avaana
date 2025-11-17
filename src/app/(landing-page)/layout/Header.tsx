@@ -5,12 +5,20 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import HamburgerButton from "./HamburgerButton";
-import MobileNav from "./MobileNav";
+
 import Navigation from "./Navigation";
 import Link from "next/link";
 import { CloseIcon } from "@/components/common/Icons";
 import { useScrollThreshold } from "@/app/hooks/useScrollThreshold";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const MobileNav = dynamic(() => import("./MobileNav"), {
+  ssr: false,
+  loading: () => null,
+});
+
+
 export default function Header() {
   const hasScrolled = useScrollThreshold(50);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +53,7 @@ export default function Header() {
         }`}
       >
         <Link
-          href={"/brigade-avalon"}
+          href={"/bren-avaana"}
           className={`flex relative z-[9999] items-center justify-start ${
             hasScrolled ? "gap-3 lg:gap-2" : "gap-3 lg:gap-6"
           }`}
@@ -74,7 +82,7 @@ export default function Header() {
             disableScrollEffect={isThankYouPage}
           />
           {!isThankYouPage && (
-            <Link href={"/brigade-avalon#enquire-form"}>
+            <Link href={"/bren-avaana#enquire-form"}>
               <Button
                 variant={hasScrolled ? "default" : "secondary"}
                 className={`${
@@ -88,7 +96,7 @@ export default function Header() {
         </div>
         <div className="lg:hidden relative z-[9999]">
           {isThankYouPage ? (
-            <Link href={"/brigade-avalon"}>
+            <Link href={"/bren-avaana"}>
               <CloseIcon className="size-6" />
             </Link>
           ) : (

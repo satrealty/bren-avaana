@@ -19,7 +19,6 @@ export default function Carousel({
   children,
   autoplay = true,
   delay = 4000,
-  showNavigation = true,
   showDots = true,
   infinite = false,
   className = "",

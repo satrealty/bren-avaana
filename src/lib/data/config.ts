@@ -1,18 +1,18 @@
 export const NAVIGATION_CONFIG = [
   {
     label: "Overview",
-    destination: "/brigade-avalon#overview",
+    destination: "/bren-avaana#overview",
   },
   {
     label: "Amenities",
-    destination: "/brigade-avalon#amenities",
+    destination: "/bren-avaana#amenities",
   },
   {
     label: "Floor Plans",
-    destination: "/brigade-avalon#floor-plans",
+    destination: "/bren-avaana#floor-plans",
   },
   {
     label: "Location",
-    destination: "/brigade-avalon#location",
+    destination: "/bren-avaana#location",
   },
 ];

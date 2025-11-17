@@ -204,12 +204,14 @@ export default function Amenities() {
   const carouselSlidesLGPc = chunkArray(CAROUSEL_DATA.images, 1);
   return (
     <section id="amenities" className="py-8 my-8 relative lg:py-20 bg-[#FBFBFB] md:bg-white">
-      <h2 className="text-center max-w-56 md:max-w-none mx-auto text-[27px] md:text-[30px] lg:text-[40px] lg2:text-[48px] font-semibold leading-[120%]">
+      <h2 className="text-center max-w-56 md:max-w-none mx-auto text-[27px] md:text-[30px] lg:text-[40px]
+       lg2:text-[48px] font-semibold leading-[120%]">
         A Bouquet of Belonging
       </h2>
 
       <Typography variant={"body"} className="lg:text-center container  mx-auto mt-4">
-       Spread across four levels, Bren Avaana offers thoughtfully curated spaces for relaxation, recreation, and rejuvenation, enriching everyday life for individuals, families, and the community.
+       Spread across four levels, Bren Avaana offers thoughtfully curated spaces for relaxation,
+        recreation, and rejuvenation, enriching everyday life for individuals, families, and the community.
       </Typography>
 
       <div className="absolute top-0 -left-8">

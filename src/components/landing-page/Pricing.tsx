@@ -14,7 +14,7 @@ export default function Pricing() {
             title="₹4.62 - 5.56 Cr"
             description="Ranging from 2765 to 2933 sq. ft."
             button={{
-              href: "/brigade-avalon#enquire-form",
+              href: "/bren-avaana#enquire-form",
               text: "Enquire Now",
             }}
           />
@@ -23,7 +23,7 @@ export default function Pricing() {
             title="₹6.67 - 7.63 Cr"
             description="3862 sq. ft. Onwards"
             button={{
-              href: "/brigade-avalon#enquire-form",
+              href: "/bren-avaana#enquire-form",
               text: "Enquire Now",
             }}
           />

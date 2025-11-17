@@ -1,7 +1,6 @@
 "use client";
 
 import { useFormContext } from "@/app/context/formContext";
-// import StatsDisplaySection from "@/components/common/StatsDisplay";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import { setStorage } from "@/lib/storageHelper";

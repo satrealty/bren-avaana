@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { setStorage } from "@/lib/storageHelper";
 import { isMobile, scrollIntoView } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import SiteVisitForm from "../forms/SiteVisitForm";
 
 export default function FloorPlanCard({

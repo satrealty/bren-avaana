@@ -4,7 +4,10 @@ import { FormProvider } from "@/app/context/formContext";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 
+
+
 export default function LandingPageLayout({
+  
   children,
 }: {
   children: React.ReactNode;

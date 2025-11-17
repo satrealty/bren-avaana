@@ -1,11 +1,14 @@
 "use client";
 
 import { useFormContext } from "@/app/context/formContext";
-import YouTubePlayer from "@/components/common/YoutubePlayer";
 import { Typography } from "@/components/ui/typography";
 import { remoteDownload } from "@/lib/remoteDownload";
 import { getStorage, setStorage } from "@/lib/storageHelper";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
+
+
+const YouTubePlayer = dynamic(()=>import("@/components/common/YoutubePlayer"))
 
 export default function Thankyou() {
   const { closeForm } = useFormContext();

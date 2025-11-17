@@ -2,14 +2,21 @@
 
 import { useState } from "react";
 import { useScrollThreshold } from "@/app/hooks/useScrollThreshold";
-// import { Typography } from "../ui/typography";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { isValidPhoneNumber } from "react-phone-number-input";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
+
+const PhoneInput = dynamic(() => import("react-phone-number-input"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-12 bg-gray-200 animate-pulse rounded-lg" />
+  ),
+});
 // ✅ Loader component
 function Loader() {
   return (
@@ -212,7 +219,8 @@ export default function FloatingSticky() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`px-4 py-2 rounded-lg ${!isSubmitting&&"cursor-pointer"} bg-[#3D9E8B] text-white hover:bg-[#296b5e] flex items-center justify-center transition-all`}
+                  className={`px-4 py-2 rounded-lg ${!isSubmitting&&"cursor-pointer"} bg-[#3D9E8B] text-white hover:bg-[#296b5e]
+                   flex items-center justify-center transition-all`}
                 >
                   {isSubmitting ? <Loader /> : "Submit"}
                 </button>

@@ -2,7 +2,11 @@
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
-import Popup from "@/components/ui/popup";
+import dynamic from "next/dynamic";
+
+const Popup =dynamic(()=>import("@/components/ui/popup"),{
+  ssr:false,
+})
 
 type FormContextType = {
   openForm: (content: ReactNode, title?: string) => void;

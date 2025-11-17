@@ -20,7 +20,6 @@ export default function MobileCarousel({
   children,
   autoplay = true,
   delay = 4000,
-  showNavigation = true,
   showDots = true,
   infinite = false,
   className = "",
