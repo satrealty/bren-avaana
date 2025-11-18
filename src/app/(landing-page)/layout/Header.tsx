@@ -39,6 +39,9 @@ export default function Header() {
       ? "/images/landing-page/logos/bran-avan.svg"
       : "/images/landing-page/logos/brigade-avalon.svg";
 
+  // Mobile should always use the dark logo variant
+  const mobileLogo = "/images/landing-page/logos/brigade-avalon-dark.svg";
+
   
 
   return (
@@ -58,17 +61,25 @@ export default function Header() {
             hasScrolled ? "gap-3 lg:gap-2" : "gap-3 lg:gap-6"
           }`}
         >
+          {/* Mobile logo (always dark) */}
           <Image
-          height={10}
-          width={10}
+            height={40}
+            width={160}
+            src={mobileLogo}
+            alt="brigade avalon logo"
+            className="w-auto h-12 lg:hidden px-3"
+          />
+
+          {/* Desktop / larger devices use existing logic */}
+          <Image
+            height={40}
+            width={160}
             src={logo1}
             alt="brigade avalon logo"
-            className={`w-auto  h-10 lg:h-24 ${
-              hasScrolled ? "lg:scale-75" : "scale-100"
+            className={`w-auto h-24 hidden lg:block ${
+              hasScrolled ? "lg:scale-75" : "lg:scale-100"
             }`}
           />
-         
-          
         </Link>
         <div className="gap-8 items-center hidden lg:flex">
           <Navigation

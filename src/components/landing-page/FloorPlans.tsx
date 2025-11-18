@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function FloorPlans() {
   return (
     <section id="floor-plans" className="lg:py-26">
-      <div className="absolute -mt-6 ">
+      <div className="absolute -mt-6 lg:block hidden ">
              <Image   src="/images/landing-page/leaf-left-full-green.png"  width={180} height={180} alt=""/>
            </div>
       <div className="container mx-auto">

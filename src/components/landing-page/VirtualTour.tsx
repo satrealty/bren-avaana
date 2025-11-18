@@ -1,5 +1,7 @@
 
 import Image from "next/image";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Typography } from "../ui/typography";
 
 const FEATURES = [
@@ -30,9 +32,19 @@ const FEATURES = [
 ];
 
 export default function BrennovationFeatures() {
+  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentFeatureIndex((prev) => (prev - 1 + FEATURES.length) % FEATURES.length);
+  };
+
+  const handleNext = () => {
+    setCurrentFeatureIndex((prev) => (prev + 1) % FEATURES.length);
+  };
+
   return (
     <section className="lg:bg-[#FBFBFB] py-16 lg:py-20 relative">
-     <div className="absolute right-0 top-0">
+     <div className="absolute right-0 top-0 hidden lg:block">
        <Image  width={180} height={180} src="/images/landing-page/leaf-right-half-golden.png" alt=""   />
      </div>
       <div className="  container ">
@@ -55,53 +67,84 @@ export default function BrennovationFeatures() {
           generations to come.
         </Typography>
 
-        {/* Row 1: 3 equal cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          {FEATURES.slice(0, 3).map((item, index) => (
-            <div
-              key={index}
-              className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200"
-            >
-              <div className="relative w-full h-53">
-                <Image src={item.img} alt={item.title} fill className="object-cover" />
-              </div>
-              <p className="text-center px-4 py-5 text-[22px] font-normal leading-[150%] text-[#999999]">
-                {item.title}
-              </p>
+        {/* Mobile: single-card carousel */}
+        <div className="mt-12 block lg:hidden">
+          <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm transition-all duration-200 p-3">
+            <div className="relative w-full h-53">
+              <Image
+                src={FEATURES[currentFeatureIndex].img}
+                alt={FEATURES[currentFeatureIndex].title}
+                fill
+                className="object-cover rounded-lg"
+              />
             </div>
-          ))}
+
+            <div className="flex items-center justify-between px-2 py-5 gap-3">
+              <button onClick={handlePrev} className="">
+                <ChevronLeft className="text-customGrey h-9 w-9" />
+              </button>
+
+              <p className="flex-1 text-center text-[18px] leading-[150%] text-customGrey">
+                {FEATURES[currentFeatureIndex].title}
+              </p>
+
+              <button onClick={handleNext} className="">
+                <ChevronRight className="text-customGrey h-9 w-9" />
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Row 2: middle wider, sides smaller (single line on lg) */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:1fr_1.6fr_1fr] gap-12">
-          {/* Left small */}
-          <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
-            <div className="relative w-full h-63">
-              <Image src={FEATURES[3].img} alt={FEATURES[3].title} fill className="object-cover" />
-            </div>
-            <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
-              {FEATURES[3].title}
-            </p>
+        {/* Desktop: existing grid layout (unchanged) */}
+        {/* Row 1: 3 equal cards */}
+        <div className="hidden lg:block">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            {FEATURES.slice(0, 3).map((item, index) => (
+              <div
+                key={index}
+                className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200"
+              >
+                <div className="relative w-full h-53">
+                  <Image src={item.img} alt={item.title} fill className="object-cover" />
+                </div>
+                <p className="text-center px-4 py-5 text-[22px] font-normal leading-[150%] text-[#999999]">
+                  {item.title}
+                </p>
+              </div>
+            ))}
           </div>
 
-          {/* Center wide */}
-          <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
-            <div className="relative w-full h-48 sm:h-56 lg:h-63">
-              <Image src={FEATURES[4].img} alt={FEATURES[4].title} fill className="object-cover" />
+          {/* Row 2: middle wider, sides smaller (single line on lg) */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:[grid-template-columns:1fr_1.6fr_1fr] gap-12">
+            {/* Left small */}
+            <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
+              <div className="relative w-full h-63">
+                <Image src={FEATURES[3].img} alt={FEATURES[3].title} fill className="object-cover" />
+              </div>
+              <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
+                {FEATURES[3].title}
+              </p>
             </div>
-            <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
-              {FEATURES[4].title}
-            </p>
-          </div>
 
-          {/* Right small */}
-          <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
-            <div className="relative w-full h-63">
-              <Image src={FEATURES[5].img} alt={FEATURES[5].title} fill className="object-cover" />
+            {/* Center wide */}
+            <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
+              <div className="relative w-full h-48 sm:h-56 lg:h-63">
+                <Image src={FEATURES[4].img} alt={FEATURES[4].title} fill className="object-cover" />
+              </div>
+              <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
+                {FEATURES[4].title}
+              </p>
             </div>
-            <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
-              {FEATURES[5].title}
-            </p>
+
+            {/* Right small */}
+            <div className="border border-[#BAEAE0] bg-white rounded-xl overflow-hidden shadow-sm hover:shadow transition-all duration-200">
+              <div className="relative w-full h-63">
+                <Image src={FEATURES[5].img} alt={FEATURES[5].title} fill className="object-cover" />
+              </div>
+              <p className="text-center px-4 py-5 text-[22px] leading-[150%] text-customGrey">
+                {FEATURES[5].title}
+              </p>
+            </div>
           </div>
         </div>
       </div>

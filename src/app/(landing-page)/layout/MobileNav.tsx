@@ -57,7 +57,7 @@ export default function MobileNav({
     if (menuOpen) {
       setShowCta(false);
       (async () => {
-        await listControls.set("hidden");
+        // await listControls.set("hidden");
         await listControls.start("show");
         setShowCta(!hideCta); // only show CTA after list finishes (and not when hidden)
       })();

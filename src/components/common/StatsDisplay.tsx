@@ -20,7 +20,7 @@ export default function StatsDisplaySection({
         />
       ))}
     </div>
-    <div className="absolute -top-20 left-0"><Image src="/images/landing-page/leaf-left-half-green.png" width={120} height={120} alt=""/></div>
+    <div className="absolute -top-20 left-0 hidden lg:block"><Image src="/images/landing-page/leaf-left-half-green.png" width={120} height={120} alt=""/></div>
     </div>
   );
 }

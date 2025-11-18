@@ -4,6 +4,7 @@ import { appData } from "@/lib/appData";
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google"; // ← Add this
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const canonical = new URL(appData.canonicalPath || "/", appData.appURL).toString();
 
@@ -100,6 +101,7 @@ export default function RootLayout({
 
       <body className={`${arapey.variable} antialiased`}>
         <Analytics/>
+        <SpeedInsights />
         <GoogleTagManager gtmId="GTM-K7JB232H" />
 
         {children}

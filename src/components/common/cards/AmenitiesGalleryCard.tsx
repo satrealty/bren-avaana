@@ -12,7 +12,7 @@ export default function AmenitiesGalleryCard({
   return (
     <div>
       <div>
-        <div className="w-full lg:h-[400px] lg2:h-[403px] relative">
+        <div className="w-full h-[250px] lg:h-[400px] lg2:h-[403px] relative">
           <Image
             src={image1}
             fill

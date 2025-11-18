@@ -47,11 +47,11 @@ export default function Hero() {
           </Typography>
         </div>
       </div>
-      <div className="px-12 absolute bottom-8 left-1/2 -translate-x-1/2 lg:hidden container mx-auto">
+      <div className=" absolute bottom-8 left-1/2 -translate-x-1/2 lg:hidden   ">
         <Button
           onClick={() => openForm(<SiteVisitForm />,"Book a Site Visit")}
           variant={"secondary"}
-          className="text-[#3B84BF] w-full"
+          className="text-[#3B84BF] w-full px-22"
         >
           Enquire Now
         </Button>

@@ -32,7 +32,7 @@ export default function Thankyou() {
             />
             <Typography
               variant={"title"}
-              className="text-[52px] font-normal mt-20 text-center text-foreground leading-tight max-w-[270px] lg:max-w-none mx-auto"
+              className=" font-normal mt-20 text-center text-foreground leading-tight max-w-[270px] lg:max-w-none mx-auto"
             >
               Thank You for Showing Interest
             </Typography>

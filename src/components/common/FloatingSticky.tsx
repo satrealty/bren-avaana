@@ -152,7 +152,10 @@ export default function FloatingSticky() {
     </button>
 
     {/* WhatsApp Button */}
-    <button
+    <a
+      href="https://wa.me/919876543210"
+  target="_blank"
+  rel="noopener noreferrer"
       onClick={() => setShowModal(true)}
       className="
         flex-1 flex items-center justify-center gap-3
@@ -161,12 +164,12 @@ export default function FloatingSticky() {
         cursor-pointer
         h-full
       "
-      disabled
+      
     >
       {/* WhatsApp SVG */}
        <Image src='/icons/whatsappIcon.svg' alt="" width={20} height={20}  />
       <span className="font-semibold text-[#999999] text-[18px]">WhatsApp</span>
-    </button>
+    </a>
   </div>
 </div>
 
@@ -185,7 +188,7 @@ export default function FloatingSticky() {
                 placeholder="Your Name"
                 required
                 {...register("name")}
-                className="w-full text-black px-4 py-2 border rounded-lg"
+                className="w-full text-black px-4 py-2   shadow-sm bg-[#ebebeb] rounded-lg"
               />
             
 
@@ -196,7 +199,7 @@ export default function FloatingSticky() {
                 defaultCountry="IN"
                 value={userPhone}
                 onChange={(value) => setValue("phone", value || "")}
-                className="custom-phone-input border rounded-lg"
+                className="custom-phone-input shadow-sm bg-[#ebebeb] rounded-lg"
                 placeholder="Enter phone number"
               />
               {errors.phone && (

@@ -43,10 +43,11 @@ const stats = [
 
 export default function Home() {
   return (
-    <main>
+    <main className="">
       <Hero />
-      <AboutBrigadeAvalon />
-      <div className="pb-12">
+      <div className="px-2 md:px-0">
+        <AboutBrigadeAvalon />
+      <div className="md:pb-12">
         <StatsDisplaySection
           stats={stats}
           className="mt-16 lg:mt-20 hidden lg:flex"
@@ -55,6 +56,8 @@ export default function Home() {
 
       <LazySections />
 
+      </div>
+      
     
     </main>
   );

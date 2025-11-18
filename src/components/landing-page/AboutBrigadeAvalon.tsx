@@ -33,32 +33,38 @@ export default function AboutBrigadeAvalon() {
                 Premium 3 BHK residences by Bren, thoughtfully designed for
                 comfort and connectivity.
               </Typography>
-              <Image
-                src={"/images/landing-page/where-life-comes.webp"}
-                width={936}
-                height={660}
-                alt="Building Entrance"
-                className="object-cover object-bottom w-full h-auto rounded-xl lg:hidden my-8"
-              />
+            
               <Typography variant={"body"} className="text-justify text-pretty">
                 Set across three elegant towers with just five homes per floor,
                 the community offers modern amenities including a clubhouse,
                 pool, yoga studio, squash, volleyball & pickleball courts.
               </Typography>
 
-              <Typography variant={"body"} className="text-justify text-pretty">
+             
+
+                   <Image
+                src={"/images/landing-page/where-life-comes.webp"}
+                width={936}
+                height={660}
+                alt="Building Entrance"
+                className="object-cover object-bottom w-full h-auto rounded-xl lg:hidden my-8"
+              />
+
+               <Typography variant={"body"} className="text-justify text-pretty">
                 Experience serene living with walking trails, a pet park,
                 elders’ zone, and lush green spaces designed to bring people
                 together.{" "}
               </Typography>
             </div>
 
-            <Button
+         <div className="mx-8">
+             <Button
               onClick={handleBrochureDownloadClick}
-              className="mt-10 lg:mt-16 w-full lg:w-fit font-semibold"
+              className="mt-10 lg:mt-16 w-full  lg:w-fit font-semibold"
             >
               Download E-Brochure
             </Button>
+         </div>
           </div>
           <div className="basis-2/3 h-full w-full hidden lg:block">
             <Image

@@ -18,13 +18,13 @@ export default function ProjectHighlight() {
             <h2 className="text-3xl md:text-5xl font-semibold mt-3">₹ 1.49 Cr Onwards</h2>
 
             <p className="mt-2 text-sm md:text-base opacity-90">Ranging from 1,515 - 1,660 Sq Ft</p>
-            <Button className="mt-6 bg-white text-[#4DA391] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition w-auto self-start">
+            <Button className="mt-6 bg-white text-[#4DA391] px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition w-full md:w-auto self-start">
               Enquire Now
             </Button>
           </div>
         </div>
       </div>
-      <div className="absolute -top-5 -right-13 z-[9999999] ">
+      <div className="absolute -top-5 -right-13 z-[9999999] hidden lg:block ">
         <Image src="/images/landing-page/leaf-right-full-green.png"
          width={220} 
          height={220} 

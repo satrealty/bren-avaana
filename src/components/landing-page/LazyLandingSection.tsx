@@ -40,6 +40,11 @@ const SiteVisit = dynamic(
   { ssr: false }
 );
 
+const WhyBrenAvenna =dynamic(
+   () => import("@/components/landing-page/WhyBrenAvenna"),
+  { ssr: false }
+)
+
 const ContactFloaty = dynamic(
   () => import("@/components/common/FloatingSticky"),
   { ssr: false }
@@ -55,6 +60,8 @@ export default function LazySections() {
   const amenities = useIsVisible();
   const virtualTour = useIsVisible();
   const floorPlans = useIsVisible();
+  const whyBrenAvenna = useIsVisible()
+  
   const location = useIsVisible();
   const siteVisit = useIsVisible();
   const floaty = useIsVisible();
@@ -89,6 +96,10 @@ export default function LazySections() {
       {/* LOCATION SECTION */}
       <div ref={location.ref}>
         {location.isVisible && <LocationSection />}
+      </div>
+
+         <div ref={whyBrenAvenna.ref}>
+        {whyBrenAvenna.isVisible && <WhyBrenAvenna />}
       </div>
 
       {/* SITE VISIT SECTION */}

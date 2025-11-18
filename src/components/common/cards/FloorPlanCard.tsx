@@ -40,7 +40,7 @@ export default function FloorPlanCard({
       <div className="relative flex items-center justify-center w-full h-full">
         <Button
           onClick={handleBrochureDownloadClick}
-          className="min-w-[210px] text-[#3D9E8B] lg:min-w-0 rounded-full font-bold"
+          className="min-w-[210px] text-[#3D9E8B] lg:min-w-0 md:rounded-full rounded-xl font-bold"
           variant={"secondary"}
         >
           {title}

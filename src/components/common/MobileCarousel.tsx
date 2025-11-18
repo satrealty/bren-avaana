@@ -3,7 +3,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Children, ReactNode, useEffect, useState } from "react";
-import { Typography } from "../ui/typography";
 
 type CarouselProps = {
   children: ReactNode;
@@ -76,7 +75,7 @@ export default function MobileCarousel({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-lg ${className}  lg:hidden p-3 pb-5 border border-customGrey`}
+      className={`relative w-full overflow-hidden rounded-lg ${className}  lg:hidden  pb-5 `}
     >
       <div className="relative flex items-center justify-center">
         <AnimatePresence mode="wait" custom={direction}>
@@ -121,24 +120,49 @@ export default function MobileCarousel({
         </div>
       )} */}
 
-      {/* Dots */}
+      {/* Three tab line indicators with arrows overlaid on the image */}
       {showDots && (
-        <div className="mt-6 flex justify-center items-center gap-2 ">
-          <button onClick={handlePrev} disabled={current === 0}>
+        <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-between px-4">
+          {/* Left arrow at start */}
+          <button
+            onClick={handlePrev}
+            disabled={current === 0}
+            className="pointer-events-auto h-8 w-8"
+          >
             <ChevronLeft
               className={`${
-                current === 0 ? "text-[#D1D1D1]" : "text-[#848484]"
-              } size-10 transition-colors ease-in-out duration-300 cursor-pointer`}
+                current === 0 ? "text-[#D1D1D1]" : "text-white"
+              } size-7 transition-colors ease-in-out duration-300 cursor-pointer drop-shadow`}
             />
           </button>
-          <Typography variant={"body"} className="font-semibold text-lg">{navTags[current]}</Typography>
-          <button onClick={handleNext} disabled={current === slides.length - 1}>
+
+          {/* Centered three lines */}
+          <div className="flex-1 flex justify-center">
+            <div className="flex items-center gap-2 pointer-events-auto">
+              {Array.from({ length: 3 }).map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-[3px] rounded-full transition-all duration-300 ${
+                    index === current % 3
+                      ? "w-8 bg-white"
+                      : "w-4 bg-white/50"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right arrow at end */}
+          <button
+            onClick={handleNext}
+            disabled={current === slides.length - 1}
+            className="pointer-events-auto h-8 w-8"
+          >
             <ChevronRight
               className={`${
                 current === slides.length - 1
-                  ? "text-[#D1D1D1]"
-                  : "text-[#848484]"
-              } size-10 transition-colors ease-in-out duration-300 cursor-pointer` }
+                  ? "text-[#D1D1D1]" : "text-white"
+              } size-7 transition-colors ease-in-out duration-300 cursor-pointer drop-shadow`}
             />
           </button>
         </div>

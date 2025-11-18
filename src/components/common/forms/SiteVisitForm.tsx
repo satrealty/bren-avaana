@@ -57,21 +57,24 @@ const onSubmit = async (data: UserSchemaType) => {
   try {
     const fullPhoneNumber = `${data.countryCode}${data.phone}`;
 
+
+
     const response = await fetch("/api/sendForm", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        Name: data.name,
-        Phone: fullPhoneNumber,
-        Email: data.email,
-        Message: data.message || "",
-        Consent: checked ? "Yes" : "No",
-        Timestamp: new Date().toLocaleString(),
+        name: data.name,
+        phone: fullPhoneNumber,
+        email: data.email,
+        message: data.message || "",
+        consent: checked ? "Yes" : "No",
+        timestamp: new Date().toLocaleString(),
       }),
     });
 
+    
     const result = await response.text();
-    console.log("API response:", result);
+    console.log("API response:mjmiijij", result);
 
    if (result.trim() === "Success") {
   // 🔹 Check storage for custom brochure/image path

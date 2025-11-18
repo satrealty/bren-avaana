@@ -20,7 +20,7 @@ export default function SiteVisit() {
               <SiteVisitForm />
             </div>
           </div>
-            <div className="lg:basis-1/3">
+            <div className="lg:basis-1/3 md:block hidden">
             <InfoCard1
               imageSrc="/images/landing-page/brigade-avalon-render-small.webp"
               title="Why Bren Avaana"

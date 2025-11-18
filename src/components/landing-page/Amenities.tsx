@@ -3,6 +3,7 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Typography } from "@/components/ui/typography";
 import AmenitiesGalleryCard from "@/components/common/cards/AmenitiesGalleryCard";
+import MobileCarousel from "@/components/common/MobileCarousel";
 
 import Image from "next/image";
 import { chunkArray } from "@/lib/formatArray";
@@ -203,8 +204,8 @@ export default function Amenities() {
   const carouselSlidesPc = chunkArray(CAROUSEL_DATA.images, 3);
   const carouselSlidesLGPc = chunkArray(CAROUSEL_DATA.images, 1);
   return (
-    <section id="amenities" className="py-8 my-8 relative lg:py-20 bg-[#FBFBFB] md:bg-white">
-      <h2 className="text-center max-w-56 md:max-w-none mx-auto text-[27px] md:text-[30px] lg:text-[40px]
+    <section id="amenities" className="py-8 my-8 px-3 relative lg:py-20 bg-[#FBFBFB] md:bg-white">
+      <h2 className="md:text-center text start   mx-auto text-[27px] md:text-[30px] lg:text-[40px]
        lg2:text-[48px] font-semibold leading-[120%]">
         A Bouquet of Belonging
       </h2>
@@ -214,9 +215,19 @@ export default function Amenities() {
         recreation, and rejuvenation, enriching everyday life for individuals, families, and the community.
       </Typography>
 
-      <div className="absolute top-0 -left-8">
+      <div className="absolute top-0 -left-8 hidden lg:block">
         <Image   src="/images/landing-page/leaf-left-half-golden.png"  width={180} height={180} alt=""/>
       </div>
+
+      {/* Mobile-only carousel under heading and description */}
+      <div className="mt-6 container mx-auto lg:hidden">
+        <MobileCarousel navTags={CAROUSEL_DATA.tags}>
+          {CAROUSEL_DATA.images.map((img) => (
+            <AmenitiesGalleryCard key={img.id} image1={img.image} />
+          ))}
+        </MobileCarousel>
+      </div>
+
       <div className="container mx-auto">
         <Accordion type="single" collapsible className="w-full  mt-8" defaultValue={ACCORDIAN_DATA[0].id}>
           {ACCORDIAN_DATA.map((item, index) => (
